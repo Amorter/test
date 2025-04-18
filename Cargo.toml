@@ -22,7 +22,7 @@ ort = { version = "=2.0.0-rc.9"}
 reqwest = {version = "^0.12.15", features = ["blocking"]}
 num-traits = "0.2.19"
 log = "0.4.27"
-
+ddddocr = { git = "https://github.com/86maid/ddddocr", branch = "master"}
 
 [features]
 default = ["chinese_click_0"]
