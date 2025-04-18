@@ -35,10 +35,7 @@ jobs:
           architecture: ${{ matrix.platform.target }}
       - name: Build wheels
         uses: PyO3/maturin-action@v1
-        env:
-          RUSTFLAGS: "-Ctarget-feature=+crt-static"
         with:
-          args: --release --out dist --find-interpreter --features dml  # 添加 feature 参数
           sccache: 'true'
       - name: Upload wheels
         uses: actions/upload-artifact@v4
