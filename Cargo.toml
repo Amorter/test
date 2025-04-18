@@ -11,7 +11,6 @@ crate-type = ["cdylib"]
 reqwest = {version = "0.12", features = ["blocking", "json"]}
 serde = "1.0"
 serde_json = "1.0"
-ddddocr = {git = "https://github.com/86maid/ddddocr.git", branch = "master"}
 image = "0.25"
 pyo3 = { version = "0.23.5", features = ["auto-initialize", "extension-module"]}
 captcha_breaker = "0.0.0-dev.4"
