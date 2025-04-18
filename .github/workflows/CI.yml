@@ -19,6 +19,7 @@ permissions:
   contents: read
 
 jobs:
+  # 只显示修改后的 windows job，其他部分保持不变
   windows:
     runs-on: ${{ matrix.platform.runner }}
     strategy:
@@ -35,16 +36,15 @@ jobs:
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         env:
-            RUSTFLAGS: "-Ctarget-feature=+crt-static"
+          RUSTFLAGS: "-Ctarget-feature=+crt-static"
         with:
-          args: --release --out dist --find-interpreter
+          args: --release --out dist --find-interpreter --features dml  # 添加 feature 参数
           sccache: 'true'
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
           name: wheels-windows-${{ matrix.platform.target }}
           path: dist
-
   linux:
     runs-on: ${{ matrix.platform.runner }}
     strategy:
